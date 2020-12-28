@@ -7,52 +7,37 @@
     <meta name="description" content="">
     <meta name="author" content="Nischay Ram Mamidi">
     <meta name="generator" content="SpackToPDF">
-    <title>Spack To PDF</title>
+    <title>Packages installed on {{name}}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
     <meta name="theme-color" content="#7952b3">
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100" style="font-size:0.8rem">
 
     <!-- Begin page content -->
     <main class="flex-shrink-0">
         <div class="container">
-            <h5 class="mt-5">Packages Installed on {{name}}</h1>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Package Name</th>
-                        <th scope="col">Versions</th>
-                        <th scope="col">Compiled Using</th>
-                        <th scope="col">via Modulefiles</th>
-                        <th scope="col">via Spack</th>
-                    </tr>
-                </thead>
-                <tbody>
-{{table_records}}
-                    <!-- <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr> -->
-                </tbody>
-            </table>
+            <h5 class="mt-5">Packages Installed on {{name}}</h5>
+            <h7>There are {{count}} packages currently installed on {{name}}</h7>
+            <div class="table-responsive">
+                <table class="table table-striped align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Package Name</th>
+                            <th scope="col">Versions</th>
+                            <th scope="col">Compiled Using</th>
+                            <th scope="col">via Modulefiles</th>
+                            <th scope="col">via Spack</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{table_records}}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </main>
 

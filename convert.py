@@ -42,6 +42,7 @@ def main(source_json, name_machine, output):
     print("Generating HTML")
     html_data = open("template/index.html").read()
     html_data = html_data.replace("{{name}}", name_machine)
+    html_data = html_data.replace("{{count}}", str(len(packages)))
 
     table_records = ""
 
@@ -56,11 +57,12 @@ def main(source_json, name_machine, output):
     with open("template/base.html", "w+") as the_file:
         the_file.write(html_data)
 
-    None if output.endswith(".pdf") else output+=".pdf"
+    if not output.endswith(".pdf"):
+        output += ".pdf"
 
-    pdfkit.from_file("template/base.html", output)
+    pdfkit.from_file("template/base.html", output, options={"enable-local-file-access": None, "orientation": "Landscape"})
     
-    print("Done")
+    # print("Done")
 
 def append_table_record(records, package, pkg_key, index):
     record = "{}{}".format(ws(20), "<tr>\n")
